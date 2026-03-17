@@ -1,0 +1,57 @@
+# 🚀 Quick Deployment Steps
+
+## Step 1: Create GitHub Repository
+1. Go to https://github.com/new
+2. Repository name: `reachout` (or your choice)
+3. Description: "AI job outreach tool with Hunter.io, SendGrid, Anthropic"
+4. Choose **Public** (easier for deployment)
+5. Click **Create repository**
+6. **Copy the URL** from the page (should be: https://github.com/vmudired19/reachout)
+
+## Step 2: Push Code to GitHub
+Run these commands in PowerShell (in your project folder):
+
+```powershell
+git init
+git config user.email "vmudired@uncc.edu"
+git config user.name "vmudired19"
+git add .
+git commit -m "Initial: Email finder app"
+git branch -M main
+git remote add origin https://github.com/vmudired19/Email_finder
+git push -u origin main
+```
+
+## Step 3: Deploy Backend to Railway
+1. Open https://railway.app
+2. Sign in with GitHub
+3. New Project → Import from GitHub
+4. Select: `vmudired19/Email_finder`
+5. Add Variables:
+   ```
+   HUNTER_API_KEY=your_key_here
+   RAPIDAPI_KEY=your_key_here
+   ANTHROPIC_API_KEY=your_key_here
+   SENDGRID_API_KEY=your_key_here
+   SENDER_EMAIL=your_email@example.com
+   ```
+6. Deploy → Copy the Public URL (e.g., `https://email-finder-production.up.railway.app`)
+
+## Step 4: Deploy Frontend to Vercel
+1. Open https://vercel.com
+2. Sign in with GitHub
+3. Add New Project → Import from GitHub
+4. Select: `vmudired19/Email_finder`
+5. Add Environment Variable:
+   ```
+   VITE_API_URL=https://your-railway-url-here
+   ```
+6. Deploy → Get your Vercel URL (e.g., `https://email-finder.vercel.app`)
+
+## Step 5: Verify
+- Open your Vercel URL
+- Test search → should work
+- Test email generation → should work
+- Test send → should work
+
+Done! 🎉
